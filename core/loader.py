@@ -376,3 +376,17 @@ class ModuleLoader(LoggerMixin):
     def get_module_paths(self) -> List[str]:
         """Get all loaded module paths"""
         return list(self.modules.keys())
+
+    def get_all_modules(self) -> List[Dict[str, Any]]:
+        """
+        Get all loaded modules as a list of module information dictionaries
+
+        Returns:
+            List of dictionaries containing module metadata
+        """
+        module_list = []
+        for module_path, module in self.modules.items():
+            module_info = self.get_module_info(module_path)
+            if module_info:
+                module_list.append(module_info)
+        return module_list
