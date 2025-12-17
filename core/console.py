@@ -73,7 +73,7 @@ Type 'help' to see commands.
 """
     
     def _setup_readline(self):
-        r"""Set up readline for command history and completion"""
+        """Set up readline for command history and completion"""
         if not HAS_READLINE:
             return
             
@@ -583,6 +583,20 @@ EXAMPLES:
         except (KeyboardInterrupt, EOFError):
             print("\n\n[*] Exiting...")
             return
+    
+    def onecmd_plus_hooks(self, line: str) -> bool:
+        """Override onecmd_plus_hooks to handle EOF better."""
+        try:
+            return super().onecmd_plus_hooks(line)
+        except (KeyboardInterrupt, EOFError):
+            print("\n\n[*] Exiting...")
+            return True
+        except Exception as e:
+            print(f"*** Unknown syntax: {e}")
+            if self.debug_mode:
+                import traceback
+                traceback.print_exc()
+            return False
     
     # Tab completion methods
     def complete_use(self, text: str, line: str, begidx: int, endidx: int) -> List[str]:
