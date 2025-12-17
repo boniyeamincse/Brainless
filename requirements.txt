@@ -1,14 +1,48 @@
 # Brainless Framework Requirements
-# Core dependencies for Debian-based Linux distributions
+# Core dependencies for the penetration testing framework
 
-# Python 3.10+ required
-python>=3.10
+# SSH operations
+paramiko>=2.11.0
 
-# Core framework dependencies
-psycopg2-binary>=2.9.0  # PostgreSQL support (optional)
-colorama>=0.4.6         # Cross-platform colored terminal text
-pyyaml>=6.0            # YAML configuration support
-requests>=2.28.0       # HTTP requests for auxiliary modules
-paramiko>=3.1.0        # SSH client for auxiliary modules
-scapy>=2.5.0           # Packet manipulation (optional)
-cryptography>=39.0.0   # Encryption utilities
+# HTTP operations (optional, for enhanced web modules)
+requests>=2.28.0
+
+# Network packet manipulation (optional, for advanced network modules)
+scapy>=2.5.0
+
+# Cryptography (optional, for enhanced encryption)
+cryptography>=37.0.0
+
+# Web scraping (optional, for web enumeration)
+beautifulsoup4>=4.11.0
+
+# Data analysis (optional, for reporting and analysis)
+pandas>=1.5.0
+numpy>=1.23.0
+
+# PDF generation (optional, for report generation)
+reportlab>=3.6.0
+
+# XML processing
+lxml>=4.9.0
+
+# Colorized output (optional, for better CLI experience)
+colorama>=0.4.6
+
+# Progress bars (optional, for better user experience)
+tqdm>=4.64.0
+
+# Configuration parsing
+configparser>=5.3.0
+
+# Date/time handling
+python-dateutil>=2.8.2
+
+# Terminal handling
+prompt-toolkit>=3.0.30
+
+# JSON processing (built-in, but listed for completeness)
+# json
+
+# System utilities (built-in)
+# os, sys, pathlib, subprocess, threading, socket, etc.
