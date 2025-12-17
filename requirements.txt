@@ -1,0 +1,14 @@
+# Brainless Framework Requirements
+# Core dependencies for Debian-based Linux distributions
+
+# Python 3.10+ required
+python>=3.10
+
+# Core framework dependencies
+psycopg2-binary>=2.9.0  # PostgreSQL support (optional)
+colorama>=0.4.6         # Cross-platform colored terminal text
+pyyaml>=6.0            # YAML configuration support
+requests>=2.28.0       # HTTP requests for auxiliary modules
+paramiko>=3.1.0        # SSH client for auxiliary modules
+scapy>=2.5.0           # Packet manipulation (optional)
+cryptography>=39.0.0   # Encryption utilities
