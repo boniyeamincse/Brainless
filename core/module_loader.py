@@ -23,6 +23,23 @@ class ModuleLoader:
             self._load_all_modules()
         return list(self._modules_cache.values())
     
+    def get_module(self, module_path: str) -> Optional[Dict[str, Any]]:
+        """Get a specific module by path."""
+        if not self._modules_cache:
+            self._load_all_modules()
+        return self._modules_cache.get(module_path)
+    
+    def get_modules_by_type(self, module_type: str) -> List[Dict[str, Any]]:
+        """Get modules by type (exploits, payloads, auxiliary, post)."""
+        if not self._modules_cache:
+            self._load_all_modules()
+        
+        filtered_modules = []
+        for module in self._modules_cache.values():
+            if module.get('module_type') == module_type:
+                filtered_modules.append(module)
+        return filtered_modules
+    
     def load_module(self, module_name: str) -> Optional[Dict[str, Any]]:
         """Load a specific module by name."""
         if not self._modules_cache:

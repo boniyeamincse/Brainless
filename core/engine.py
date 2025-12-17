@@ -18,7 +18,7 @@ from typing import Dict, List, Optional, Any
 from datetime import datetime
 
 from core.logger import setup_logger, LoggerMixin
-from core.loader import ModuleLoader
+from core.module_loader import ModuleLoader
 from core.session import SessionManager
 from core.cli import BrainlessCLI
 
@@ -185,8 +185,7 @@ auto_update = false
         """Initialize framework components"""
         try:
             # Initialize module loader
-            modules_dir = self.config.get('modules', 'modules_directory', fallback='modules')
-            self.module_loader = ModuleLoader(modules_dir, self.config)
+            self.module_loader = ModuleLoader()
             self.debug("Module loader initialized")
             
             # Initialize session manager

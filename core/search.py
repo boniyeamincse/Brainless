@@ -45,6 +45,12 @@ def search_modules(keyword: str, module_loader: ModuleLoader) -> List[Dict[str, 
                 if keyword_lower in str(tag).lower():
                     results.append(module)
                     break
+        
+        # Search in module type
+        module_type = module.get('module_type', '')
+        if keyword_lower in module_type.lower():
+            results.append(module)
+            continue
     
     return results
 
